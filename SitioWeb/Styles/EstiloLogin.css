@@ -1,0 +1,33 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /*background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+}
+
+body {
+    background: transparent;
+}
+
+body, input, button {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.login {
+    padding: 15px;
+    width: 400px;
+    min-height: 400px;
+    margin: 2% auto 0 auto;
+    border:1px solid black;
+    .heading {
+    text-align: center;
+    margin-top: 1%;
+}
+}

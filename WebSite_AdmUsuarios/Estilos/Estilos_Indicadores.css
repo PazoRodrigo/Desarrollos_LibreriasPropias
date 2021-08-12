@@ -1,0 +1,57 @@
+﻿
+#DivIndicadores {
+    position: fixed;
+    top: 70px;
+    left: 900px;
+    width: 400px;
+    height: 70px;
+    border-radius: 3px 4px;
+}
+
+#Globo1 {
+    position: absolute;
+}
+#Globo2 {
+    position: absolute;
+    left: 115px;
+}
+#Globo3 {
+    position: absolute;
+    left: 230px;
+}
+
+.Globo {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+}
+
+    .Globo:hover {
+        background-color: green;
+        text-decoration: none;
+    }
+
+.selectorGlobo {
+    text-decoration: none;
+}
+
+
+.Tipo1 {
+    width: 75px;
+    height: 75px;
+    line-height: 100px;
+    text-align: center;
+    background: yellow;
+    border: 3px solid red;
+}
+
+.Tipo2 {
+    position: absolute;
+    top: 2px;
+    left: 50px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #ccc;
+    border: 3px solid #000;
+}

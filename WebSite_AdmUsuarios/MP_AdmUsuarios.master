@@ -1,0 +1,92 @@
+﻿<%@ Master Language="VB" CodeFile="MP_AdmUsuarios.master.vb" Inherits="MP_AdmUsuarios" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Adm. Usuarios</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="~/Estilos/Estilos_Usuarios.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/Estilos/Estilos_Indicadores.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/Estilos/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Scripts/sweetalert-master/dist/sweetalert.css" rel="stylesheet" />
+    <link href="~/Estilos/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Scripts/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Scripts/jquery-ui-1.12.1/jquery-ui.theme.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- jQuery library -->
+    <script src='<%= ResolveClientUrl("~/Scripts/jquery-3.4.0.min.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/LUM.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/DBE.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/Conexion.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/sweetalert-master/dist/sweetalert.min.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/bootstrap.min.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/jquery.blockUI.js") %>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/jquery-ui.js") %>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/jquery-ui-1.12.1/jquery-ui.js") %>' type="text/javascript"></script>
+    <!-- Entidades -->
+    <script src='<%= ResolveClientUrl("~/Scripts/Entidades/Acceso.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/Entidades/Area.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/Entidades/Familia.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/Entidades/Formulario.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/Entidades/Menu.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/Entidades/Perfil.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/Entidades/Rama.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/Entidades/Rol.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/Entidades/Seccional.js")%>' type="text/javascript"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/Entidades/Usuario.js")%>' type="text/javascript"></script>
+    <!-- WebServices-->
+    <script type="text/javascript">
+        var urlWsAcceso = '<%= ResolveClientUrl("~/WebServices/WsAcceso.asmx")%>';
+        var urlWsArea = '<%= ResolveClientUrl("~/WebServices/WsArea.asmx")%>';
+        var urlWsFamilia = '<%= ResolveClientUrl("~/WebServices/WsFamilia.asmx")%>';
+        var urlWsFormulario = '<%= ResolveClientUrl("~/WebServices/WsFormulario.asmx")%>';
+        var urlWsPerfil = '<%= ResolveClientUrl("~/WebServices/WsPerfil.asmx")%>';
+        var urlWsRama = '<%= ResolveClientUrl("~/WebServices/WsRama.asmx")%>';
+        var urlWsRol = '<%= ResolveClientUrl("~/WebServices/WsRol.asmx")%>';
+        var urlWsSeccional = '<%= ResolveClientUrl("~/WebServices/WsSeccional.asmx")%>';
+        var urlWsUsuario = '<%= ResolveClientUrl("~/WebServices/WsUsuario.asmx")%>';
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $(".tabs").tabs();
+        });
+        $('body').on('keyup', 'input[type=text]', function (e) {
+            $(this).val($(this).val().toUpperCase());
+        });
+    </script>
+    <form id="form1" runat="server">
+        <div class="container-fluid">
+            <nav class="navbar navbar-UTEDYC">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href='<%= ResolveClientUrl("~/Forms/Default.aspx")%>'>Administración de Usuarios</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href='<%= ResolveClientUrl("~/Forms/FrmAdmUsuarios_Areas.aspx")%>'>Areas</a></li>
+                        <li><a href='<%= ResolveClientUrl("~/Forms/FrmAdmUsuarios_Roles.aspx")%>'>Roles</a></li>
+                        <li><a href='<%= ResolveClientUrl("~/Forms/FrmAdmUsuarios_Familias.aspx")%>'>Familias</a></li>
+                        <li><a href='<%= ResolveClientUrl("~/Forms/FrmAdmUsuarios_Ramas.aspx")%>'>Ramas</a></li>
+                        <li><a href='<%= ResolveClientUrl("~/Forms/FrmAdmUsuarios_Formularios.aspx")%>'>Formularios</a></li>
+                        <li><a href='<%= ResolveClientUrl("~/Forms/FrmAdmUsuarios_Perfiles.aspx")%>'>Perfiles</a></li>
+                        <li><a href='<%= ResolveClientUrl("~/Forms/FrmAdmUsuarios_Usuarios.aspx")%>'>Usuarios</a></li>
+                    </ul>
+                    <div class="nav navbar-right">
+                        <p class="navbar-text">Usuario Administrador</p>
+                        <p class="navbar-text">V. 1.0</p>
+                        <ul class="nav navbar-nav navbar-right ba">
+                            <li><a href='#'><span class="glyphicon glyphicon-log-in"></span>Acceso</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div>
+                <asp:ContentPlaceHolder ID="Contenido" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
